@@ -763,6 +763,74 @@ html[data-theme="dark"],html[data-theme="dark"] body{background:var(--bg);color:
 .bi-bit-val{font-size:12px;font-weight:800;line-height:1;color:var(--text)}
 .bi-bit-idx{font-size:8px;opacity:.5;color:var(--text2)}
 .bi-field{font-size:11.5px;color:var(--text);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
+/* ── Export menu ─────────────────────────────────────────────────────────────── */
+.export-wrap{position:relative;display:inline-block}
+.btn-export{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);border-radius:6px;padding:6px 10px;font-size:11.5px;cursor:pointer;transition:all .15s;font-weight:600}
+.btn-export:hover{background:rgba(255,255,255,.18);color:#fff}
+.export-menu{position:absolute;top:calc(100% + 4px);right:0;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:4px;display:none;flex-direction:column;gap:2px;min-width:160px;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.export-menu.open{display:flex}
+.export-mi{padding:7px 12px;border-radius:5px;font-size:12px;cursor:pointer;color:var(--text);border:none;background:none;text-align:left;width:100%}
+.export-mi:hover{background:var(--bg)}
+/* ── Copy Markdown ───────────────────────────────────────────────────────────── */
+.btn-md{padding:3px 8px;background:var(--bg);border:1px solid var(--border);border-radius:5px;font-size:11px;cursor:pointer;color:var(--text2);transition:all .12s;margin-left:8px}
+.btn-md:hover{border-color:var(--fast);color:var(--fast)}
+/* ── Field link icon ─────────────────────────────────────────────────────────── */
+.field-link{opacity:0;font-size:11px;cursor:pointer;margin-left:5px;color:var(--text2);transition:opacity .12s;text-decoration:none;user-select:none}
+.fr:hover .field-link{opacity:.55}
+.field-link:hover{opacity:1!important;color:var(--fast)}
+.fr.field-hl td{background:rgba(251,191,36,.12)!important;transition:background .4s}
+[data-theme="dark"] .fr.field-hl td{background:rgba(251,191,36,.08)!important}
+/* ── Annotations / Notes ─────────────────────────────────────────────────────── */
+.note-section{padding:12px 18px;border-top:1px solid var(--border)}
+.note-label{font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.note-dot{width:6px;height:6px;border-radius:50%;background:#F59E0B;flex-shrink:0}
+.note-textarea{width:100%;min-height:56px;max-height:160px;padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;resize:vertical;outline:none;font-family:inherit;box-sizing:border-box;line-height:1.5}
+.note-textarea:focus{border-color:var(--fast)}
+/* ── Bandwidth budget ────────────────────────────────────────────────────────── */
+.bw-section{margin:6px 0 2px;padding:8px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;font-size:11.5px}
+.bw-title{font-weight:700;color:var(--text2);text-transform:uppercase;font-size:10.5px;letter-spacing:.4px;margin-bottom:6px}
+.bw-bar-wrap{height:7px;background:var(--bg);border-radius:4px;overflow:hidden;border:1px solid var(--border);margin-bottom:4px}
+.bw-bar{height:100%;border-radius:4px;transition:width .4s}
+.bw-info{color:var(--text2);font-size:11px;margin-bottom:4px}
+.bw-row{display:flex;justify-content:space-between;color:var(--text2);font-size:11px;padding:1px 0}
+.bw-pname{color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:140px}
+/* ── Multi-select compare ──────────────────────────────────────────────────────  */
+.pi-cb{width:13px;height:13px;margin-right:5px;flex-shrink:0;cursor:pointer;accent-color:var(--fast);vertical-align:middle}
+.sb-compare-bar{background:var(--fast);color:#fff;padding:8px 12px;font-size:12px;font-weight:700;display:none;align-items:center;justify-content:space-between;border-top:2px solid rgba(255,255,255,.2);position:sticky;bottom:0}
+.sb-compare-bar.show{display:flex}
+.sb-compare-btn{background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:5px;padding:4px 12px;font-size:12px;cursor:pointer;font-weight:700}
+.sb-compare-btn:hover{background:rgba(255,255,255,.35)}
+.sb-clear-sel{font-size:11px;opacity:.75;cursor:pointer;padding:2px 6px}
+.sb-clear-sel:hover{opacity:1}
+.matrix-wrap{padding:16px 18px}
+.matrix-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.matrix-sub{font-size:12px;color:var(--text2);margin-bottom:14px}
+.matrix-table{width:100%;border-collapse:collapse;font-size:12px}
+.matrix-table th{padding:7px 10px;background:var(--navy);color:#fff;font-size:11px;font-weight:700;text-align:left;white-space:nowrap;position:sticky;top:0}
+.matrix-table th:first-child{min-width:130px}
+.matrix-table td{padding:5px 10px;border-bottom:1px solid var(--border);vertical-align:top;word-break:break-word}
+.matrix-table tr:nth-child(even) td{background:var(--bg)}
+.matrix-hdr-pgn{display:block;font-family:'Courier New',monospace;font-size:10px;opacity:.6}
+.matrix-diff td{background:rgba(245,158,11,.1)!important}
+[data-theme="dark"] .matrix-diff td{background:rgba(251,191,36,.07)!important}
+/* ── Range sparkbar ──────────────────────────────────────────────────────────── */
+.rt-spark{display:inline-flex;align-items:center;gap:4px;vertical-align:middle;margin-left:6px}
+.rt-range{width:60px;height:5px;border-radius:3px;background:var(--border);overflow:visible;display:inline-block;position:relative}
+.rt-range-fill{height:100%;border-radius:3px;background:var(--fast);min-width:2px;display:block}
+.rt-pct{font-size:10px;color:var(--text2)}
+/* ── Snapshot / changelog ────────────────────────────────────────────────────── */
+.snap-section{margin-top:16px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px}
+.snap-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.snap-sub{font-size:12px;color:var(--text2);margin-bottom:12px}
+.snap-btns{display:flex;gap:8px;flex-wrap:wrap}
+.snap-btn{padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:var(--bg);color:var(--text)}
+.snap-btn:hover{border-color:var(--fast);color:var(--fast)}
+.snap-btn.primary{background:var(--fast);color:#fff;border-color:var(--fast)}
+.snap-btn.primary:hover{opacity:.9}
+.snap-result{margin-top:12px;font-size:12px;color:var(--text2)}
+.snap-new{color:#059669;font-weight:600}
+.snap-rem{color:#DC2626;font-weight:600}
+.snap-chg{color:#D97706;font-weight:600}
 `;
 
 // ── JS app ─────────────────────────────────────────────────────────────────────
@@ -807,6 +875,231 @@ function toggleSbSec(hdr){
 }
 function clearBookmarks(){localStorage.removeItem('nmea-bm');renderSidebar();}
 function clearRecent(){localStorage.removeItem('nmea-recent');renderSidebar();}
+
+// ── Notes (annotations) ────────────────────────────────────────────────────────
+function getNote(pgn){try{return localStorage.getItem('nmea-note-'+pgn)||'';}catch(e){return '';}}
+function saveNote(pgn,text){
+  try{
+    const dot=document.getElementById('note-dot-'+pgn);
+    if(text){localStorage.setItem('nmea-note-'+pgn,text);if(dot)dot.style.display='';}
+    else{localStorage.removeItem('nmea-note-'+pgn);if(dot)dot.style.display='none';}
+  }catch(e){}
+}
+
+// ── Export PGN ─────────────────────────────────────────────────────────────────
+function toggleExportMenu(){
+  const m=document.getElementById('export-menu');
+  if(m) m.classList.toggle('open');
+}
+function exportPgnJson(pgn){
+  const group=DATA.groups.find(g=>g.pgn===pgn);
+  if(!group) return;
+  const blob=new Blob([JSON.stringify(group,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='pgn-'+pgn+'.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  document.getElementById('export-menu').classList.remove('open');
+}
+function exportPgnC(pgn){
+  const group=DATA.groups.find(g=>g.pgn===pgn);
+  if(!group) return;
+  const d=group.defs[S.variant||0];
+  const guard='PGN_'+pgn+'_H';
+  const lines=['// PGN '+pgn+' — '+d.desc,'// Generated by NMEA 2000 PGN Reference',
+    '#ifndef '+guard,'#define '+guard,'',
+    '#define PGN_'+pgn+'_ID   '+pgn+'UL',
+    '#define PGN_'+pgn+'_LEN  '+(d.len||0)+'  /* bytes */',
+    '#define PGN_'+pgn+'_PRIO '+(d.prio!=null?d.prio:6),'',
+    '/* Bit offsets and widths */'];
+  let offset=0;
+  for(const f of (d.fields||[])){
+    const mac='PGN_'+pgn+'_'+f.nm.toUpperCase().replace(/[^A-Z0-9]+/g,'_');
+    lines.push('#define '+mac+'_OFFSET  '+offset);
+    lines.push('#define '+mac+'_BITS    '+(f.b||0));
+    if(f.r&&f.r!==1) lines.push('#define '+mac+'_SCALE   '+f.r);
+    if(f.u) lines.push('#define '+mac+'_UNIT    "'+f.u+'"');
+    lines.push('');
+    offset+=(f.b||0);
+  }
+  lines.push('#endif /* '+guard+' */');
+  const blob=new Blob([lines.join('\\n')],{type:'text/plain'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='pgn_'+pgn+'.h';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  document.getElementById('export-menu').classList.remove('open');
+}
+function copyFieldsMd(btn){
+  const group=DATA.groups.find(g=>g.pgn===S.pgn);
+  if(!group) return;
+  const d=group.defs[S.variant||0];
+  const header='| # | Field | Type | Bits | Unit | Resolution | Range |';
+  const sep='|---|-------|------|------|------|------------|-------|';
+  const rows=(d.fields||[]).map((f,i)=>
+    '| '+(f.n||i+1)+' | '+f.nm+' | '+f.ft+' | '+(f.b||'?')+' | '+(f.u||'')+' | '+(fmtRes(f.r)||'')+' | '+(f.mn!=null&&f.mx!=null?f.mn+'–'+f.mx:'')+' |'
+  ).join('\\n');
+  const md='## PGN '+S.pgn+' — '+d.desc+'\\n\\n'+header+'\\n'+sep+'\\n'+rows;
+  navigator.clipboard?.writeText(md).then(()=>{
+    if(btn){btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy MD',1500);}
+  });
+  const m=document.getElementById('export-menu');
+  if(m) m.classList.remove('open');
+}
+
+// ── Field deep-link ────────────────────────────────────────────────────────────
+function copyFieldLink(el){
+  const fnm=el.dataset.fnm;
+  const url=location.origin+location.pathname+'#pgn-'+S.pgn+'/'+encodeURIComponent(fnm);
+  navigator.clipboard?.writeText(url).then(()=>{
+    el.textContent='✓';
+    setTimeout(()=>{el.textContent='🔗';},1500);
+  });
+}
+function scrollToField(name){
+  const rows=document.querySelectorAll('.fr[data-fnm]');
+  let target=null;
+  for(const r of rows){if(r.dataset.fnm===name){target=r;break;}}
+  if(!target) return;
+  target.classList.add('field-hl');
+  target.scrollIntoView({block:'center',behavior:'smooth'});
+  setTimeout(()=>target.classList.remove('field-hl'),3000);
+}
+
+// ── Multi-select compare ───────────────────────────────────────────────────────
+function toggleSelect(evt,pgn){
+  evt.stopPropagation();
+  if(S.selected.has(pgn)) S.selected.delete(pgn);
+  else S.selected.add(pgn);
+  updateCompareBar();
+}
+function updateCompareBar(){
+  const bar=document.getElementById('sb-compare-bar');
+  if(!bar) return;
+  if(S.selected.size>=2){
+    bar.classList.add('show');
+    bar.querySelector('.sb-compare-count').textContent=S.selected.size+' PGNs selected';
+  } else {
+    bar.classList.remove('show');
+  }
+}
+function clearCompare(){
+  S.selected=new Set();
+  updateCompareBar();
+  document.querySelectorAll('.pi-cb').forEach(cb=>{cb.checked=false;});
+}
+function runCompare(){
+  renderCompareMatrix([...S.selected]);
+}
+function renderCompareMatrix(pgns){
+  const groups=pgns.map(p=>DATA.groups.find(g=>g.pgn===p)).filter(Boolean);
+  if(groups.length<2) return;
+  const defs=groups.map(g=>g.defs[0]);
+  const maxFields=Math.max(...defs.map(d=>(d.fields||[]).length));
+  // header row
+  const thCells=defs.map(d=>'<th>'+esc(d.desc.length>22?d.desc.slice(0,21)+'…':d.desc)+'<span class="matrix-hdr-pgn">'+pad6(groups[defs.indexOf(d)].pgn)+'</span></th>').join('');
+  let rows='';
+  for(let i=0;i<maxFields;i++){
+    const cells=defs.map(d=>(d.fields||[])[i]);
+    const names=cells.filter(Boolean).map(f=>f.nm);
+    const isDiff=new Set(names).size>1||cells.some(c=>!c);
+    const tds=cells.map(f=>f?'<td>'+esc(f.nm)+'<br><small style="color:var(--text2)">'+esc(f.ft)+' '+(f.b||'?')+'b'+(f.r&&f.r!==1?' \xd7'+f.r:'')+(f.u?' '+f.u:'')+'</small></td>':'<td style="opacity:.3">—</td>').join('');
+    rows+='<tr class="'+(isDiff?'matrix-diff':'')+'">'+tds+'</tr>';
+  }
+  const detail=document.getElementById('detail');
+  detail.innerHTML='<div class="matrix-wrap fade-in">'+
+    '<div class="matrix-title">PGN Comparison</div>'+
+    '<div class="matrix-sub">'+pgns.length+' PGNs &middot; '+maxFields+' field rows &middot; <span class="matrix-diff" style="padding:2px 6px;border-radius:3px;font-weight:600">highlighted</span> rows differ</div>'+
+    '<div style="overflow-x:auto"><table class="matrix-table">'+
+      '<thead><tr><th>#</th>'+thCells+'</tr></thead>'+
+      '<tbody>'+rows+'</tbody>'+
+    '</table></div>'+
+    '<button class="snap-btn" onclick="clearCompare();S.pgn=null;renderWelcome()" style="margin-top:12px">&#x2190; Back</button>'+
+  '</div>';
+  S.pgn=null;
+}
+
+// ── Bandwidth budget ───────────────────────────────────────────────────────────
+function renderBandwidthBudget(pgns){
+  if(!pgns.length) return '';
+  const entries=pgns.map(p=>{
+    const g=DATA.groups.find(gr=>gr.pgn===p);
+    if(!g||!g.defs[0].ms||!g.defs[0].len) return null;
+    const d=g.defs[0];
+    const bitsPerFrame=d.len*8+47; // 47b CAN overhead per frame
+    const bps=Math.round(bitsPerFrame/(d.ms/1000));
+    return {pgn:p,desc:d.desc,bps,ms:d.ms};
+  }).filter(Boolean);
+  if(!entries.length) return '';
+  const total=entries.reduce((s,e)=>s+e.bps,0);
+  const CAN_MAX=250000;
+  const pct=Math.min(100,(total/CAN_MAX*100)).toFixed(1);
+  const color=pct>80?'#EF4444':pct>50?'#F59E0B':'#10B981';
+  const rows=entries.map(e=>'<div class="bw-row"><span class="bw-pname">'+esc(e.desc.slice(0,20))+'</span><span>'+(e.bps/1000).toFixed(1)+'k bps</span></div>').join('');
+  return '<div class="bw-section">'+
+    '<div class="bw-title">CAN Bandwidth Budget</div>'+
+    '<div class="bw-bar-wrap"><div class="bw-bar" style="width:'+pct+'%;background:'+color+'"></div></div>'+
+    '<div class="bw-info">'+total.toLocaleString()+' / 250,000 bps ('+pct+'%)</div>'+
+    rows+
+  '</div>';
+}
+
+// ── Snapshot / changelog ───────────────────────────────────────────────────────
+function saveSnapshot(){
+  const snap=JSON.stringify({
+    ts:Date.now(),
+    groups:DATA.groups.map(g=>({
+      pgn:g.pgn,desc:g.defs[0].desc,
+      fc:g.defs[0].fields.length,
+      complete:g.defs[0].complete
+    }))
+  });
+  try{localStorage.setItem('nmea-snapshot',snap);}catch(e){return;}
+  alert('Snapshot saved — '+DATA.groups.length+' PGNs stored. Load a newer version of this page and use Compare to see changes.');
+}
+function compareSnapshot(){
+  const raw=localStorage.getItem('nmea-snapshot');
+  if(!raw){alert('No snapshot found. Save a snapshot first, then upgrade the page and compare.');return;}
+  const prev=JSON.parse(raw);
+  const prevMap=new Map((prev.groups||[]).map(p=>[p.pgn,p]));
+  const currMap=new Map(DATA.groups.map(g=>[g.pgn,{pgn:g.pgn,desc:g.defs[0].desc,fc:g.defs[0].fields.length,complete:g.defs[0].complete}]));
+  const added=[],removed=[],changed=[];
+  for(const [pgn,curr] of currMap){
+    if(!prevMap.has(pgn)) added.push(curr);
+    else{const p=prevMap.get(pgn);if(p.fc!==curr.fc||p.complete!==curr.complete) changed.push({p,curr});}
+  }
+  for(const [pgn,p] of prevMap){if(!currMap.has(pgn)) removed.push(p);}
+  renderChangelogView(prev.ts,added,removed,changed);
+}
+function renderChangelogView(ts,added,removed,changed){
+  const date=ts?new Date(ts).toLocaleString():'unknown';
+  const addHtml=added.length?'<div class="snap-new">+ '+added.length+' new PGN'+(added.length>1?'s':'')+':</div>'+added.slice(0,10).map(g=>'<div style="margin-left:12px">&bull; '+esc(g.desc)+' ('+g.pgn+')</div>').join(''):'';
+  const remHtml=removed.length?'<div class="snap-rem">− '+removed.length+' removed PGN'+(removed.length>1?'s':'')+':</div>'+removed.slice(0,5).map(g=>'<div style="margin-left:12px">&bull; '+esc(g.desc)+' ('+g.pgn+')</div>').join(''):'';
+  const chgHtml=changed.length?'<div class="snap-chg">≈ '+changed.length+' changed PGN'+(changed.length>1?'s':'')+':</div>'+changed.slice(0,10).map(({p,curr})=>'<div style="margin-left:12px">&bull; '+esc(curr.desc)+': '+p.fc+'→'+curr.fc+' fields, complete '+(p.complete?'✔':'✘')+'→'+(curr.complete?'✔':'✘')+'</div>').join(''):'';
+  const noneHtml=(!added.length&&!removed.length&&!changed.length)?'<div style="color:var(--text2)">No structural changes detected since snapshot.</div>':'';
+  const detail=document.getElementById('detail');
+  detail.innerHTML='<div class="matrix-wrap fade-in">'+
+    '<div class="matrix-title">Changelog vs Snapshot</div>'+
+    '<div class="matrix-sub">Snapshot taken '+esc(date)+'</div>'+
+    '<div class="snap-result">'+addHtml+remHtml+chgHtml+noneHtml+'</div>'+
+    '<button class="snap-btn" onclick="S.pgn=null;renderWelcome()" style="margin-top:14px">&#x2190; Back</button>'+
+  '</div>';
+  S.pgn=null;
+}
+
+// ── Unit conversion map ────────────────────────────────────────────────────────
+const UNIT_CONV={
+  'rad':{u:'\xb0',fn:function(v){return parseFloat((v*180/Math.PI).toFixed(4));}},
+  'm/s':{u:'kn',fn:function(v){return parseFloat((v*1.94384).toFixed(3));}},
+  'K':{u:'\xb0C',fn:function(v){return parseFloat((v-273.15).toFixed(2));}},
+  'Pa':{u:'hPa',fn:function(v){return parseFloat((v/100).toFixed(3));}},
+  'm':{u:'ft',fn:function(v){return parseFloat((v*3.28084).toFixed(2));}},
+  'Hz':{u:'RPM',fn:function(v){return parseFloat((v*60).toFixed(1));}},
+  'rpm':{u:'Hz',fn:function(v){return parseFloat((v/60).toFixed(3));}},
+  'rpm/s':{u:'rad/s\xb2',fn:function(v){return parseFloat((v*2*Math.PI/60).toFixed(4));}},
+};
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 function esc(s){
@@ -858,7 +1151,7 @@ function pgnCat(pgn){
 }
 
 // ── State ──────────────────────────────────────────────────────────────────────
-const S={search:'',typeFilter:'all',completeFilter:'all',catFilter:'',pqFilter:'',pgn:null,variant:0};
+const S={search:'',typeFilter:'all',completeFilter:'all',catFilter:'',pqFilter:'',pgn:null,variant:0,selected:new Set()};
 
 function filtered(){
   let g=DATA.groups;
@@ -956,7 +1249,9 @@ function renderSidebar(){
     const t=g.defs[0].type;
     const typeCls=t==='Fast'?'fast':'single';
     const ql=qualityLevel(g);
+    const sel=S.selected.has(g.pgn);
     return '<div class="pi'+(active?' active':'')+'" onclick="selectPgn('+g.pgn+')" data-pgn="'+g.pgn+'">'+
+      '<input type="checkbox" class="pi-cb" '+(sel?'checked':'')+' onclick="toggleSelect(event,'+g.pgn+')" title="Add to compare">'+
       '<span class="pi-num">'+pad6(g.pgn)+'</span>'+
       '<div class="pi-info"><div class="pi-name">'+esc(g.defs[0].desc)+'</div></div>'+
       '<span class="pi-cat" title="'+esc(pgnCat(g.pgn))+'">'+esc(pgnCat(g.pgn).split(' ')[0])+'</span>'+
@@ -966,7 +1261,9 @@ function renderSidebar(){
     '</div>';
   }).join('');
 
-  document.getElementById('sb-list').innerHTML=extra+(mainHtml||'<div class="sb-empty">No PGNs match your search</div>');
+  const bwHtml=renderBandwidthBudget(bms);
+  document.getElementById('sb-list').innerHTML=extra+bwHtml+(mainHtml||'<div class="sb-empty">No PGNs match your search</div>');
+  updateCompareBar();
 }
 
 // ── Select PGN ─────────────────────────────────────────────────────────────────
@@ -1034,6 +1331,14 @@ function renderWelcome(){
       '<div class="legend-grid">'+legendItems+'</div>'+
     '</div>'+
     renderCatStats()+
+    '<div class="snap-section">'+
+      '<div class="snap-title">Changelog Detection</div>'+
+      '<div class="snap-sub">Save a snapshot of the current PGN database, then load a newer version of the page and compare to see what changed.</div>'+
+      '<div class="snap-btns">'+
+        '<button class="snap-btn primary" onclick="saveSnapshot()">Save Snapshot</button>'+
+        '<button class="snap-btn" onclick="compareSnapshot()">Compare with Snapshot</button>'+
+      '</div>'+
+    '</div>'+
     renderEnumBrowser()+
   '</div>';
 }
@@ -1066,9 +1371,9 @@ function fieldRow(f,i,bitOffset){
 
   const descHtml=f.d?'<small>'+esc(f.d)+'</small>':'';
 
-  return '<tr class="fr '+cls+'" data-fi="'+i+'">'+
+  return '<tr class="fr '+cls+'" data-fi="'+i+'" data-fnm="'+esc(f.nm)+'">'+
     '<td class="fc-n">'+(f.n||i+1)+'</td>'+
-    '<td class="fc-nm">'+esc(f.nm)+descHtml+offLabel+'</td>'+
+    '<td class="fc-nm">'+esc(f.nm)+'<span class="field-link" data-fnm="'+esc(f.nm)+'" onclick="copyFieldLink(this)" title="Copy link to this field">&#128279;</span>'+descHtml+offLabel+'</td>'+
     '<td class="fc-tp">'+typeBadge(f.ft)+'</td>'+
     '<td class="fc-b">'+esc(bits)+'</td>'+
     '<td class="fc-u">'+esc(f.u||'')+'</td>'+
@@ -1128,7 +1433,7 @@ function renderDefBlock(d,pgn){
   let tableHtml='';
   if(fields.length){
     tableHtml='<div class="fields-wrap">'+
-      '<div class="ft-title">Fields <span class="ft-count">'+fields.length+'</span></div>'+
+      '<div class="ft-title">Fields <span class="ft-count">'+fields.length+'</span><button class="btn-md" onclick="copyFieldsMd(this)">Copy MD</button></div>'+
       '<table class="ft">'+
       '<thead><tr>'+
         '<th class="fc-n">#</th>'+
@@ -1410,10 +1715,21 @@ function renderRoundTrip(d){
       valStr=String(raw);
       unitStr=f.u||'';
     }
+    // Unit conversion
+    const numVal=parseFloat(valStr);
+    const conv=unitStr&&UNIT_CONV[unitStr];
+    const altStr=conv&&!isNaN(numVal)?'<span class="rt-unit">('+conv.fn(numVal)+'&thinsp;'+esc(conv.u)+')</span>':'';
+    // Range sparkbar
+    let sparkHtml='';
+    if(f.mn!=null&&f.mx!=null&&raw!=null&&f.mx>f.mn){
+      const rawN=raw>>>0;
+      const pctRaw=Math.min(100,Math.max(0,(rawN-f.mn)/(f.mx-f.mn)*100));
+      sparkHtml='<span class="rt-spark"><span class="rt-range"><span class="rt-range-fill" style="width:'+pctRaw.toFixed(1)+'%"></span></span><span class="rt-pct">'+pctRaw.toFixed(0)+'%</span></span>';
+    }
     return '<tr>'+
       '<td>'+esc(f.nm)+'</td>'+
       '<td class="rt-raw">'+esc(rawStr)+'</td>'+
-      '<td><span class="rt-val">'+esc(valStr)+'</span>'+(unitStr?'<span class="rt-unit">'+esc(unitStr)+'</span>':'')+'</td>'+
+      '<td><span class="rt-val">'+esc(valStr)+'</span>'+(unitStr?'<span class="rt-unit">'+esc(unitStr)+'</span>':'')+altStr+sparkHtml+'</td>'+
     '</tr>';
   }).filter(Boolean).join('');
   if(!rows) return '';
@@ -1728,6 +2044,14 @@ function renderDetail(){
     '<button class="btn-share" onclick="sharePgn(this)">Share</button>'+
     '<button class="btn-print" onclick="window.print()">Print</button>'+
     '<button class="btn-diff" onclick="openDiff('+pgn+')">Diff</button>'+
+    '<div class="export-wrap">'+
+      '<button class="btn-export" onclick="toggleExportMenu()">Export &#9660;</button>'+
+      '<div class="export-menu" id="export-menu">'+
+        '<button class="export-mi" onclick="exportPgnJson('+pgn+')">&#x2193; JSON</button>'+
+        '<button class="export-mi" onclick="exportPgnC('+pgn+')">&#x2193; C Header (.h)</button>'+
+        '<button class="export-mi" onclick="copyFieldsMd(this)">&#x2398; Fields as Markdown</button>'+
+      '</div>'+
+    '</div>'+
     '<button class="btn-copy" onclick="copyPgn('+pgn+',this)">Copy PGN</button>'+
   '</div>';
 
@@ -1740,6 +2064,15 @@ function renderDetail(){
     '<div class="var-panel" id="vp-'+i+'" style="'+(i>0?'display:none':'')+'">'+renderDefBlock(d,pgn)+'</div>'
   ).join('');
 
+  const noteVal=getNote(pgn);
+  const noteHtml='<div class="note-section">'+
+    '<div class="note-label">'+
+      '<span class="note-dot" id="note-dot-'+pgn+'" style="'+(noteVal?'':'display:none')+'"></span>'+
+      'Private Notes (stored locally)'+
+    '</div>'+
+    '<textarea class="note-textarea" oninput="saveNote('+pgn+',this.value)" placeholder="Add private notes for this PGN...">'+esc(noteVal)+'</textarea>'+
+  '</div>';
+
   detail.innerHTML='<div class="detail fade-in">'+
     '<div class="pgn-hdr-card">'+
       '<div class="pgn-hdr-main">'+numBlock+textBlock+actionsBlock+'</div>'+
@@ -1747,6 +2080,7 @@ function renderDetail(){
       renderDeviceClass(pgn,defs[0])+
     '</div>'+
     panelsHtml+
+    noteHtml+
   '</div>';
 }
 
@@ -1793,6 +2127,7 @@ function setupEvents(){
     }
     if(!inInput&&(e.key==='j'||e.key==='ArrowDown')){e.preventDefault();navigatePgn(1);}
     if(!inInput&&(e.key==='k'||e.key==='ArrowUp')){e.preventDefault();navigatePgn(-1);}
+    if(!inInput&&e.key==='d'&&S.pgn){e.preventDefault();openDiff(S.pgn);}
   });
 
   // Diff overlay background click → close
@@ -1806,7 +2141,7 @@ function setupEvents(){
     }
   },true);
 
-  // Byte/bit inspector click
+  // Byte/bit inspector click + export-menu close
   document.addEventListener('click',function(e){
     const byteEl=e.target.closest('.hd-byte[data-bi]');
     if(byteEl){showBitInfo(parseInt(byteEl.dataset.bi),byteEl);return;}
@@ -1814,6 +2149,10 @@ function setupEvents(){
     if(popup&&popup.classList.contains('open')&&!popup.contains(e.target)){
       popup.classList.remove('open');
       document.querySelectorAll('.hd-byte.bi-active').forEach(el=>el.classList.remove('bi-active'));
+    }
+    if(!e.target.closest('.export-wrap')){
+      const em=document.getElementById('export-menu');
+      if(em) em.classList.remove('open');
     }
   });
 
@@ -1926,9 +2265,13 @@ function initAdvFilters(){
 }
 
 function handleHash(pushState){
-  const m=location.hash.match(/^#pgn-(\\d+)$/);
+  const m=location.hash.match(/^#pgn-(\\d+)(?:\\/(.+))?$/);
   if(m){
     selectPgn(parseInt(m[1]),false);
+    if(m[2]){
+      const fnm=decodeURIComponent(m[2]);
+      setTimeout(function(){scrollToField(fnm);},120);
+    }
   } else {
     renderWelcome();
   }
@@ -2030,6 +2373,13 @@ const HTML = `<!DOCTYPE html>
     </div>
     <div class="sb-adv" id="sb-adv"></div>
     <div class="sb-list" id="sb-list"></div>
+    <div class="sb-compare-bar" id="sb-compare-bar">
+      <span class="sb-compare-count">0 PGNs selected</span>
+      <div style="display:flex;gap:6px;align-items:center">
+        <span class="sb-clear-sel" onclick="clearCompare()">&#x2715; Clear</span>
+        <button class="sb-compare-btn" onclick="runCompare()">Compare</button>
+      </div>
+    </div>
   </aside>
 
   <main class="content" id="content">
@@ -2070,7 +2420,7 @@ console.log(`Built ${OUT}  (${size} KB, ${totalGroups} PGN groups, ${TOTAL_DEFS}
 console.log(`Open: file://${OUT}`);
 
 // ── Service Worker ─────────────────────────────────────────────────────────────
-const SW_VERSION = `nmea2000-v${raw.Version ?? '1'}-${totalGroups}`;
+const SW_VERSION = `nmea2000-v${raw.Version ?? '1'}-${totalGroups}-${DATA.length}`;
 const SW = `const CACHE='${SW_VERSION}';
 const FILES=['./','./index.html'];
 self.addEventListener('install',e=>e.waitUntil(

@@ -1,4 +1,4 @@
-const CACHE='nmea2000-v6.2.0-339';
+const CACHE='nmea2000-v6.2.0-339-1010683';
 const FILES=['./','./index.html'];
 self.addEventListener('install',e=>e.waitUntil(
   caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())
