@@ -589,12 +589,129 @@ html[data-theme="dark"],html[data-theme="dark"] body{background:var(--bg);color:
   padding:3px 10px;border-radius:12px;margin-top:4px;display:inline-block;
   background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);
 }
+
+/* ── Quality dot ──────────────────────────────────────────────────────────── */
+.qi-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-left:4px;align-self:center}
+.qi-ok{background:#10B981}.qi-partial{background:#F59E0B}.qi-stub{background:#EF4444}
+
+/* ── Bookmarks & Recent in sidebar ───────────────────────────────────────── */
+.sb-section{border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-sec-hdr{display:flex;align-items:center;justify-content:space-between;padding:7px 12px 5px;cursor:pointer;user-select:none}
+.sb-sec-title{font-size:10.5px;font-weight:700;letter-spacing:.3px;color:rgba(255,255,255,.4);text-transform:uppercase}
+.sb-sec-right{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.3)}
+.sb-sec-clr{cursor:pointer;text-decoration:underline;color:rgba(255,255,255,.25)}
+.sb-sec-clr:hover{color:rgba(255,255,255,.6)}
+.sb-sec-toggle{font-size:11px;transition:transform .15s}
+.sb-sec-toggle.open{transform:rotate(90deg)}
+.pi-sm{display:flex;align-items:center;gap:0;padding:5px 12px;cursor:pointer;transition:background .1s;border-bottom:1px solid rgba(255,255,255,.025)}
+.pi-sm:hover{background:rgba(255,255,255,.05)}
+.pi-sm.active{background:rgba(212,168,39,.1);border-left:3px solid var(--gold)}
+.pi-sm-num{font-family:'Courier New',monospace;font-size:10.5px;font-weight:700;color:rgba(255,255,255,.4);min-width:56px;flex-shrink:0}
+.pi-sm-name{font-size:11.5px;color:rgba(255,255,255,.65);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pi-bm-star{font-size:13px;color:var(--gold);flex-shrink:0;margin-left:4px}
+
+/* ── Bookmark & Share buttons ─────────────────────────────────────────────── */
+.btn-bm{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6);border-radius:6px;padding:6px 10px;font-size:15px;cursor:pointer;transition:all .15s;line-height:1}
+.btn-bm:hover{background:rgba(212,168,39,.2);color:var(--gold)}
+.btn-bm.active{background:rgba(212,168,39,.2);border-color:rgba(212,168,39,.4);color:var(--gold)}
+.btn-share{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);border-radius:6px;padding:6px 12px;font-size:11.5px;cursor:pointer;transition:all .15s;font-weight:600;white-space:nowrap}
+.btn-share:hover{background:rgba(255,255,255,.18);color:#fff}
+
+/* ── PGN navigable tag ────────────────────────────────────────────────────── */
+.tag-pgnref{background:#FEF9C3;color:#854D0E;border:1px solid #FEF08A;font-size:10px}
+[data-theme="dark"] .tag-pgnref{background:rgba(212,168,39,.15);color:#FCD34D;border-color:rgba(212,168,39,.3)}
+.so-pgnref{cursor:pointer;color:var(--gold);text-decoration:underline dotted;font-weight:700}
+
+/* ── Lookup shared usage ──────────────────────────────────────────────────── */
+.lut-shared{padding:4px 10px;font-size:10.5px;color:var(--text2);border-top:1px solid var(--border);background:var(--bg)}
+[data-theme="dark"] .lut-shared{background:#1C2128}
+
+/* ── Hex dump ─────────────────────────────────────────────────────────────── */
+.hd-section{padding:14px 18px;border-top:1px solid var(--border)}
+.hd-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hd-note{font-size:10.5px;font-weight:400;color:var(--text2);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 7px;letter-spacing:0}
+.hd-dump{font-family:'Courier New',monospace;font-size:12px;line-height:1.8;border:1px solid var(--border);border-radius:8px;overflow-x:auto;background:var(--bg);padding:10px 14px}
+.hd-row{display:flex;gap:16px;align-items:baseline;white-space:nowrap}
+.hd-off{color:var(--text2);font-size:10.5px;min-width:38px;flex-shrink:0}
+.hd-hex{flex:0 0 auto;display:flex;gap:6px;flex-wrap:nowrap}
+.hd-byte{min-width:19px;display:inline-block;font-weight:600}
+.hd-sep{color:var(--border);padding:0 2px;flex-shrink:0}
+.hd-asc{color:var(--text2);letter-spacing:1px;flex-shrink:0}
+.hd-leg{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:10px}
+.hd-li{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text2)}
+.hd-ldot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+
+/* ── Fast-packet frame diagram ────────────────────────────────────────────── */
+.fp-section{padding:14px 18px;border-top:1px solid var(--border)}
+.fp-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.fp-tag{font-size:10px;font-weight:400;background:rgba(29,78,216,.15);color:#93C5FD;border-radius:4px;padding:1px 7px;border:1px solid rgba(29,78,216,.2)}
+.fp-frames{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.fp-frame{display:flex;align-items:stretch;height:34px;border-radius:5px;overflow:hidden;border:1px solid var(--border);font-family:'Courier New',monospace;font-size:11px}
+.fp-cell{display:flex;align-items:center;justify-content:center;padding:2px 4px;border-right:1px solid rgba(255,255,255,.15);flex-shrink:0;font-weight:700;color:#fff;text-align:center;font-size:10px;line-height:1.2}
+.fp-cell:last-child{border-right:none}
+.fp-hdr{background:#4F46E5;min-width:52px}
+.fp-len{background:#0369A1;min-width:40px}
+.fp-data{background:#047857;flex:1}
+.fp-data.pad{background:#374151;opacity:.4}
+.fp-info{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--text2)}
+.fp-li::before{content:'·';margin-right:4px;opacity:.4}
+.fp-li:first-child::before{content:''}
+
+/* ── Category stats ───────────────────────────────────────────────────────── */
+.cs-section{margin-top:16px;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.cs-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);padding:14px 20px 8px}
+.cs-row{display:flex;align-items:center;gap:10px;padding:6px 20px}
+.cs-row:last-child{padding-bottom:14px}
+.cs-name{font-size:12px;font-weight:600;color:var(--text);min-width:160px;flex-shrink:0}
+.cs-bar-wrap{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.cs-bar{height:100%;background:var(--navy-3);border-radius:4px;transition:width .3s}
+.cs-pct{font-size:11px;color:var(--text2);font-family:'Courier New',monospace;min-width:36px;text-align:right;flex-shrink:0}
+.cs-count{font-size:10.5px;color:var(--text2);min-width:52px;text-align:right;flex-shrink:0}
+[data-theme="dark"] .cs-bar{background:var(--fast)}
 `;
 
 // ── JS app ─────────────────────────────────────────────────────────────────────
 // Note: inner template literals are escaped as \` and \${ for embedding
 const JS = `
 const DATA = ${DATA};
+
+// pre-computed lookup → [pgn, ...] usage map
+const LUT_USAGE=(function(){
+  const u={};
+  for(const g of DATA.groups){for(const d of g.defs){for(const f of d.fields){
+    if(f.lk){if(!u[f.lk])u[f.lk]=[];if(u[f.lk].indexOf(g.pgn)<0)u[f.lk].push(g.pgn);}
+    if(f.blk){if(!u[f.blk])u[f.blk]=[];if(u[f.blk].indexOf(g.pgn)<0)u[f.blk].push(g.pgn);}
+  }}}
+  return u;
+})();
+
+// ── localStorage helpers ───────────────────────────────────────────────────────
+function getRecent(){try{return JSON.parse(localStorage.getItem('nmea-recent')||'[]')}catch(e){return[]}}
+function addRecent(pgn){
+  const desc=(DATA.groups.find(g=>g.pgn===pgn)||{defs:[{desc:''}]}).defs[0].desc;
+  const r=getRecent().filter(x=>x.p!==pgn);
+  r.unshift({p:pgn,d:desc});
+  localStorage.setItem('nmea-recent',JSON.stringify(r.slice(0,10)));
+}
+function getBookmarks(){try{return JSON.parse(localStorage.getItem('nmea-bm')||'[]')}catch(e){return[]}}
+function toggleBookmark(pgn,btn){
+  const bm=getBookmarks();const idx=bm.indexOf(pgn);
+  if(idx>=0)bm.splice(idx,1);else bm.unshift(pgn);
+  localStorage.setItem('nmea-bm',JSON.stringify(bm));
+  if(btn){btn.textContent=bm.indexOf(pgn)>=0?'★':'☆';btn.classList.toggle('active',bm.indexOf(pgn)>=0);}
+  renderSidebar();
+}
+function sharePgn(btn){
+  navigator.clipboard?.writeText(location.href).then(()=>{
+    btn.textContent='Copied!';setTimeout(()=>btn.textContent='Share',1500);
+  });
+}
+function toggleSbSec(hdr){
+  const body=hdr.nextElementSibling;
+  body.style.display=body.style.display==='none'?'':'none';
+}
+function clearBookmarks(){localStorage.removeItem('nmea-bm');renderSidebar();}
+function clearRecent(){localStorage.removeItem('nmea-recent');renderSidebar();}
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 function esc(s){
@@ -669,31 +786,91 @@ function filtered(){
 }
 
 // ── Sidebar ────────────────────────────────────────────────────────────────────
+function qualityLevel(gr){
+  const allComplete=gr.defs.every(d=>d.complete);
+  const anyComplete=gr.defs.some(d=>d.complete);
+  const hasMissing=gr.defs.some(d=>d.missing&&d.missing.length>0);
+  if(allComplete&&!hasMissing) return 'ok';
+  if(anyComplete||allComplete) return 'partial';
+  return 'stub';
+}
+function pgnItem(pgn,name,active,large){
+  if(large){
+    const gr=DATA.groups.find(g=>g.pgn===pgn)||{defs:[{type:'Single',desc:name}]};
+    const t=gr.defs[0].type;
+    const typeCls=t==='Fast'?'fast':'single';
+    const ql=qualityLevel(gr);
+    return '<div class="pi'+(active?' active':'')+'" onclick="selectPgn('+pgn+')" data-pgn="'+pgn+'">'+
+      '<span class="pi-num">'+pad6(pgn)+'</span>'+
+      '<div class="pi-info"><div class="pi-name">'+esc(name)+'</div></div>'+
+      '<span class="pi-cat" title="'+esc(pgnCat(pgn))+'">'+esc(pgnCat(pgn).split(' ')[0])+'</span>'+
+      '<span class="pi-type '+typeCls+'">'+t[0]+'</span>'+
+      (gr.defs.length>1?'<span class="pi-multi">'+gr.defs.length+'</span>':'')+
+      '<span class="qi-dot qi-'+ql+'" title="'+(ql==='ok'?'Complete':'ql'==='partial'?'Partial':'Stub')+'"></span>'+
+    '</div>';
+  }
+  return '<div class="pi-sm'+(active?' active':'')+'" onclick="selectPgn('+pgn+')" data-pgn="'+pgn+'">'+
+    '<span class="pi-sm-num">'+pad6(pgn)+'</span>'+
+    '<span class="pi-sm-name">'+esc(name)+'</span>'+
+  '</div>';
+}
 function renderSidebar(){
   const groups=filtered();
   document.getElementById('sb-count').textContent=groups.length+' / '+DATA.groups.length;
-  const html=groups.map(g=>{
+
+  const bms=getBookmarks();
+  const recent=getRecent();
+  let extra='';
+
+  if(bms.length){
+    const items=bms.map(pgn=>{
+      const gr=DATA.groups.find(g=>g.pgn===pgn);
+      const name=gr?gr.defs[0].desc:'PGN '+pgn;
+      return pgnItem(pgn,'★ '+name,pgn===S.pgn,false);
+    }).join('');
+    extra+='<div class="sb-section">'+
+      '<div class="sb-sec-hdr" onclick="toggleSbSec(this)">'+
+        '<span class="sb-sec-title">Pinned ('+bms.length+')</span>'+
+        '<span class="sb-sec-right"><span class="sb-sec-clr" onclick="event.stopPropagation();clearBookmarks()">clear</span></span>'+
+      '</div>'+
+      '<div>'+items+'</div>'+
+    '</div>';
+  }
+
+  if(recent.length){
+    const items=recent.map(r=>pgnItem(r.p,r.d,r.p===S.pgn,false)).join('');
+    extra+='<div class="sb-section">'+
+      '<div class="sb-sec-hdr" onclick="toggleSbSec(this)">'+
+        '<span class="sb-sec-title">Recent ('+recent.length+')</span>'+
+        '<span class="sb-sec-right"><span class="sb-sec-clr" onclick="event.stopPropagation();clearRecent()">clear</span></span>'+
+      '</div>'+
+      '<div>'+items+'</div>'+
+    '</div>';
+  }
+
+  const mainHtml=groups.map(g=>{
     const active=g.pgn===S.pgn;
     const t=g.defs[0].type;
     const typeCls=t==='Fast'?'fast':'single';
-    const typeLabel=t==='Fast'?'F':'S';
+    const ql=qualityLevel(g);
     return '<div class="pi'+(active?' active':'')+'" onclick="selectPgn('+g.pgn+')" data-pgn="'+g.pgn+'">'+
       '<span class="pi-num">'+pad6(g.pgn)+'</span>'+
-      '<div class="pi-info">'+
-        '<div class="pi-name">'+esc(g.defs[0].desc)+'</div>'+
-      '</div>'+
+      '<div class="pi-info"><div class="pi-name">'+esc(g.defs[0].desc)+'</div></div>'+
       '<span class="pi-cat" title="'+esc(pgnCat(g.pgn))+'">'+esc(pgnCat(g.pgn).split(' ')[0])+'</span>'+
-      '<span class="pi-type '+typeCls+'">'+typeLabel+'</span>'+
+      '<span class="pi-type '+typeCls+'">'+t[0]+'</span>'+
       (g.defs.length>1?'<span class="pi-multi">'+g.defs.length+'</span>':'')+
+      '<span class="qi-dot qi-'+ql+'"></span>'+
     '</div>';
   }).join('');
-  document.getElementById('sb-list').innerHTML=html||'<div class="sb-empty">No PGNs match your search</div>';
+
+  document.getElementById('sb-list').innerHTML=extra+(mainHtml||'<div class="sb-empty">No PGNs match your search</div>');
 }
 
 // ── Select PGN ─────────────────────────────────────────────────────────────────
 function selectPgn(pgn,pushState){
   if(pushState===undefined)pushState=true;
   S.pgn=pgn; S.variant=0;
+  addRecent(pgn);
   if(pushState) history.pushState(null,'','#pgn-'+pgn);
   renderSidebar();
   renderDetail();
@@ -753,6 +930,7 @@ function renderWelcome(){
       '<div class="wlc-legend-title">Field Type Legend</div>'+
       '<div class="legend-grid">'+legendItems+'</div>'+
     '</div>'+
+    renderCatStats()+
     renderEnumBrowser()+
   '</div>';
 }
@@ -776,6 +954,7 @@ function fieldRow(f,i,bitOffset){
   if(f.sg) notes.push('<span class="tag tag-signed">signed</span>');
   if(f.key) notes.push('<span class="tag tag-key">⚷ key</span>');
   if(f.pq) notes.push('<span class="tag tag-pq">'+esc(f.pq.toLowerCase().replace(/_/g,' '))+'</span>');
+  if(f.ft==='PGN') notes.push('<span class="tag tag-pgnref">↗ PGN ref</span>');
   if(f.lk)  notes.push('<span class="tag tag-lk">↗ '+esc(f.lk)+'</span>');
   if(f.blk) notes.push('<span class="tag tag-blk">⚑ '+esc(f.blk)+'</span>');
   if(f.c)   notes.push('<span class="tag tag-cond">if '+esc(f.c)+'</span>');
@@ -797,13 +976,14 @@ function fieldRow(f,i,bitOffset){
 
 // ── Render lookup tables ───────────────────────────────────────────────────────
 function lutCard(name,vals,isBit){
-  const rows=vals.map(([v,n])=>'<div class="lut-row"><span class="lv">'+esc(v)+'</span><span class="ln">'+esc(n)+'</span></div>').join('');
-  const overflow=vals.length>30?'<div class="lut-overflow">'+vals.length+' entries total</div>':'';
   const displayRows=vals.slice(0,30).map(([v,n])=>'<div class="lut-row"><span class="lv">'+esc(v)+'</span><span class="ln">'+esc(n)+'</span></div>').join('');
+  const usage=LUT_USAGE[name]||[];
+  const sharedHtml=usage.length>1?'<div class="lut-shared">Shared by <strong>'+(usage.length)+'</strong> PGN'+(usage.length>1?'s':'')+'</div>':'';
   return '<div class="lut">'+
     '<div class="lut-hdr"><span class="lut-hdr-name">'+esc(name)+'</span><span class="lut-hdr-type">'+(isBit?'bit flags':'enum')+'</span></div>'+
     '<div class="lut-body">'+displayRows+'</div>'+
-    (overflow?'<div class="lut-overflow">… '+vals.length+' values total</div>':'')+
+    (vals.length>30?'<div class="lut-overflow">… '+vals.length+' values total</div>':'')+
+    sharedHtml+
   '</div>';
 }
 
@@ -874,9 +1054,11 @@ function renderDefBlock(d,pgn){
     tableHtml+
     repeatHtml+
     (lookupHtml?'<div class="lut-section"><div class="lut-grid">'+lookupHtml+'</div></div>':'')+
+    renderFastPacket(d)+
     renderCanFrame(pgn,d)+
     renderBitLayout(d)+
     renderSampleOutput(d,pgn)+
+    renderHexDump(d)+
   '</div>';
 }
 
@@ -885,6 +1067,139 @@ function pill(label,val,valCls){
     '<span class="pl">'+esc(label)+'</span>'+
     '<span class="pv'+(valCls?' '+valCls:'')+'">'+esc(val)+'</span>'+
   '</div>';
+}
+
+// ── Fast-packet frame diagram ──────────────────────────────────────────────────
+function renderFastPacket(d){
+  if(d.type!=='Fast') return '';
+  const payloadLen=d.len||0;
+  const nFrames=payloadLen<=6?1:Math.ceil((payloadLen-6)/7)+1;
+  const rows=[];
+  for(let i=0;i<nFrames;i++){
+    const startByte=i===0?0:6+(i-1)*7;
+    const endByte=i===0?Math.min(5,payloadLen-1):Math.min(startByte+6,payloadLen-1);
+    const dataBytes=endByte-startByte+1;
+    const padBytes=i===0?0:7-dataBytes;
+    const cells=[
+      '<div class="fp-cell fp-hdr" title="'+(i===0?'Sequence counter (3b) | Total frames (5b)':'Sequence counter (3b) | Frame # (5b)')+'">'+(i===0?'SEQ|CNT':'SEQ|'+(i))+'</div>',
+      i===0?'<div class="fp-cell fp-len" title="Total payload length">LEN='+payloadLen+'</div>':'',
+      '<div class="fp-cell fp-data" title="Payload bytes '+startByte+'–'+endByte+'">B'+startByte+(dataBytes>1?'–'+endByte:'')+'</div>',
+      padBytes>0?'<div class="fp-cell fp-data pad" style="flex:'+padBytes+'" title="Unused bytes">pad</div>':'',
+    ].filter(Boolean).join('');
+    rows.push('<div class="fp-frame">'+cells+'</div>');
+  }
+  return '<div class="fp-section">'+
+    '<div class="fp-title">Fast-Packet Frames<span class="fp-tag">'+nFrames+' CAN frame'+(nFrames>1?'s':'')+'</span></div>'+
+    '<div class="fp-frames">'+rows.join('')+'</div>'+
+    '<div class="fp-info">'+
+      '<span class="fp-li">'+payloadLen+' byte payload</span>'+
+      '<span class="fp-li">Frame 0: 1b seq + 1b len header + 6b data</span>'+
+      '<span class="fp-li">Frames 1–'+(nFrames-1)+': 1b seq header + 7b data</span>'+
+      '<span class="fp-li">8 bytes per CAN frame</span>'+
+    '</div>'+
+  '</div>';
+}
+
+// ── Hex wire format dump ───────────────────────────────────────────────────────
+function setBits(bytes,bitOffset,bitLen,value){
+  let v=Math.floor(value)>>>0;
+  for(let i=0;i<bitLen;i++){
+    const byteIdx=Math.floor((bitOffset+i)/8);
+    const bitIdx=(bitOffset+i)%8;
+    if(byteIdx<bytes.length){
+      if(v&(1<<i)) bytes[byteIdx]|=(1<<bitIdx);
+      else bytes[byteIdx]&=~(1<<bitIdx);
+    }
+  }
+}
+function buildFrameBytes(d){
+  const len=d.len||Math.ceil((d.fields||[]).reduce((s,f)=>s+(f.b||0),0)/8)||0;
+  if(!len) return [];
+  const bytes=new Array(len).fill(0);
+  let offset=0;
+  for(const f of (d.fields||[])){
+    const bits=f.b||0;
+    if(!['RESERVED','SPARE'].includes(f.ft)){
+      const sv=sampleVal(f);
+      if(sv&&sv.t==='n'&&bits<=32){
+        const encoded=Math.max(0,Math.round(sv.v/(f.r||1)));
+        setBits(bytes,offset,Math.min(bits,32),encoded);
+      } else if(sv&&sv.t==='s'){
+        for(let ci=0;ci<sv.v.length&&ci*8<bits;ci++){
+          setBits(bytes,offset+ci*8,8,sv.v.charCodeAt(ci));
+        }
+      }
+    }
+    offset+=bits;
+  }
+  return bytes;
+}
+function renderHexDump(d){
+  if(!(d.fields||[]).length) return '';
+  const bytes=buildFrameBytes(d);
+  if(!bytes.length) return '';
+  // build per-byte field ownership
+  const owns=[];
+  let offset=0;
+  for(let fi=0;fi<d.fields.length;fi++){
+    const f=d.fields[fi];
+    const bits=f.b||0;
+    const c=TYPE_COLOR[f.ft]||'#374151';
+    const startB=Math.floor(offset/8);
+    const endB=bits?Math.floor((offset+bits-1)/8):startB;
+    for(let b=startB;b<=endB&&b<bytes.length;b++) owns[b]={color:c,name:f.nm,ft:f.ft};
+    offset+=bits;
+  }
+  const COLS=8;let rows='';
+  for(let r=0;r<bytes.length;r+=COLS){
+    const slice=bytes.slice(r,r+COLS);
+    const offStr='0x'+r.toString(16).toUpperCase().padStart(2,'0');
+    const hexCells=slice.map((b,i)=>{
+      const o=owns[r+i]||{};
+      const h=b.toString(16).toUpperCase().padStart(2,'0');
+      const style=o.color?'color:'+o.color+';font-weight:700':'';
+      return '<span class="hd-byte" style="'+style+'" title="'+esc(o.name||'')+'">'+h+'</span>';
+    }).join('');
+    const pad=COLS-slice.length;
+    const ascCells=slice.map(b=>{const ch=b>=32&&b<127?String.fromCharCode(b):'.';return esc(ch);}).join('');
+    rows+='<div class="hd-row">'+
+      '<span class="hd-off">'+offStr+'</span>'+
+      '<span class="hd-hex">'+hexCells+(pad?'<span style="opacity:.2">'+' &nbsp;&nbsp;'.repeat(pad)+'</span>':'')+'</span>'+
+      '<span class="hd-sep">|</span>'+
+      '<span class="hd-asc">'+ascCells+'</span>'+
+    '</div>';
+  }
+  // legend: unique field types used (skip RESERVED/SPARE)
+  const seen=new Set();
+  const legItems=d.fields.filter(f=>!['RESERVED','SPARE'].includes(f.ft)&&!seen.has(f.ft)&&seen.add(f.ft))
+    .map(f=>'<span class="hd-li"><span class="hd-ldot" style="background:'+(TYPE_COLOR[f.ft]||'#374151')+'"></span>'+esc(f.ft)+'</span>').join('');
+  return '<div class="hd-section">'+
+    '<div class="hd-title">Hex Wire Format<span class="hd-note">'+bytes.length+' bytes · LE bits</span></div>'+
+    '<div class="hd-dump">'+rows+'</div>'+
+    (legItems?'<div class="hd-leg">'+legItems+'</div>':'')+
+  '</div>';
+}
+
+// ── Category completion stats ──────────────────────────────────────────────────
+function renderCatStats(){
+  const catData={};
+  for(const g of DATA.groups){
+    const cat=pgnCat(g.pgn);
+    if(!catData[cat]) catData[cat]={total:0,complete:0};
+    for(const d of g.defs){catData[cat].total++;if(d.complete)catData[cat].complete++;}
+  }
+  const rows=CATS.filter(c=>catData[c]).map(c=>{
+    const {total,complete}=catData[c];
+    const pct=total?Math.round(complete/total*100):0;
+    return '<div class="cs-row">'+
+      '<span class="cs-name">'+esc(c)+'</span>'+
+      '<div class="cs-bar-wrap"><div class="cs-bar" style="width:'+pct+'%"></div></div>'+
+      '<span class="cs-pct">'+pct+'%</span>'+
+      '<span class="cs-count">'+complete+'/'+total+'</span>'+
+    '</div>';
+  }).join('');
+  return '<div class="cs-section">'+
+    '<div class="cs-title">Completeness by Category</div>'+rows+'</div>';
 }
 
 // ── CAN frame breakdown ────────────────────────────────────────────────────────
@@ -1004,7 +1319,10 @@ function renderSampleOutput(d,pgn){
     if(!val) return;
     const key=f.nm.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'');
     const isLast=i===keep.length-1;
-    const vHtml=val.t==='s'?'<span class="so-str">"'+esc(String(val.v))+'"</span>':'<span class="so-num">'+esc(String(val.v))+'</span>';
+    let vHtml;
+    if(val.t==='s') vHtml='<span class="so-str">"'+esc(String(val.v))+'"</span>';
+    else if(f.ft==='PGN') vHtml='<span class="so-pgnref" onclick="selectPgn('+val.v+')" title="Navigate to PGN '+val.v+'">'+esc(String(val.v))+'</span>';
+    else vHtml='<span class="so-num">'+esc(String(val.v))+'</span>';
     html+='  <span class="so-key">"'+esc(key)+'"</span>: '+vHtml+(isLast?'':',')+' \\n';
   });
   html+='<span class="so-meta">}</span>';
@@ -1037,7 +1355,10 @@ function renderDetail(){
     '<span class="pgn-hdr-cat">'+esc(pgnCat(pgn))+'</span>'+
   '</div>';
 
+  const isBm=getBookmarks().indexOf(pgn)>=0;
   const actionsBlock='<div class="pgn-hdr-actions">'+
+    '<button class="btn-bm'+(isBm?' active':'')+'" onclick="toggleBookmark('+pgn+',this)" title="'+(isBm?'Remove bookmark':'Bookmark')+'">'+( isBm?'★':'☆')+'</button>'+
+    '<button class="btn-share" onclick="sharePgn(this)">Share</button>'+
     '<button class="btn-copy" onclick="copyPgn('+pgn+',this)">Copy PGN</button>'+
   '</div>';
 
@@ -1243,6 +1564,12 @@ function initTheme(){
 function init(){
   initTheme();
   initAdvFilters();
+  const urlQ=new URLSearchParams(location.search).get('q');
+  if(urlQ){
+    S.search=urlQ;
+    document.getElementById('sb-search').value=urlQ;
+    document.getElementById('hdr-search').value=urlQ;
+  }
   renderSidebar();
   setupEvents();
   handleHash(false);
