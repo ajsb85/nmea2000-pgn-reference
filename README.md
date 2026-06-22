@@ -2,7 +2,7 @@
 
 Interactive technical reference for all NMEA 2000 Parameter Group Numbers (PGNs), sourced from the [canboat](https://github.com/canboat/canboat) open-source database.
 
-**Live site:** <!-- PAGES_URL -->
+**Live site:** https://ajsb85.github.io/nmea2000-pgn-reference/
 
 ## Features
 
