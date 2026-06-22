@@ -826,24 +826,18 @@ function renderSampleOutput(d,pgn){
   const fields=d.fields||[];
   const keep=fields.filter(f=>!['RESERVED','SPARE'].includes(f.ft));
   if(!keep.length) return '';
-  let html='<span class="so-meta">{</span>
-';
-  html+='  <span class="so-key">"pgn"</span>: <span class="so-num">'+pgn+'</span>,
-';
-  html+='  <span class="so-key">"prio"</span>: <span class="so-num">'+(d.prio!=null?d.prio:6)+'</span>,
-';
-  html+='  <span class="so-key">"src"</span>: <span class="so-num">0</span>,
-';
-  html+='  <span class="so-key">"dst"</span>: <span class="so-num">255</span>,
-';
+  let html='<span class="so-meta">{</span>\n';
+  html+='  <span class="so-key">"pgn"</span>: <span class="so-num">'+pgn+'</span>,\n';
+  html+='  <span class="so-key">"prio"</span>: <span class="so-num">'+(d.prio!=null?d.prio:6)+'</span>,\n';
+  html+='  <span class="so-key">"src"</span>: <span class="so-num">0</span>,\n';
+  html+='  <span class="so-key">"dst"</span>: <span class="so-num">255</span>,\n';
   keep.forEach((f,i)=>{
     const val=sampleVal(f);
     if(!val) return;
     const key=f.nm.toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'');
     const isLast=i===keep.length-1;
     const vHtml=val.t==='s'?'<span class="so-str">"'+esc(String(val.v))+'"</span>':'<span class="so-num">'+esc(String(val.v))+'</span>';
-    html+='  <span class="so-key">"'+esc(key)+'"</span>: '+vHtml+(isLast?'':',')+'
-';
+    html+='  <span class="so-key">"'+esc(key)+'"</span>: '+vHtml+(isLast?'':',')+' \n';
   });
   html+='<span class="so-meta">}</span>';
   return '<div class="so-section">'+
