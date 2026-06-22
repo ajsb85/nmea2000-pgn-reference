@@ -519,11 +519,11 @@ html[data-theme="dark"],html[data-theme="dark"] body{background:var(--bg);color:
 .so-copy.copied{background:rgba(16,185,129,.1);border-color:#10B981;color:#10B981}
 
 /* ── Byte boundary markers ────────────────────────────────────────────────── */
-.bl-bar-wrap{position:relative;margin-bottom:10px}
-.bl-byte-marks{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.bl-bar-wrap{position:relative;margin-bottom:28px}
+.bl-byte-marks{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:visible}
 .bl-byte-mark{position:absolute;top:-4px;bottom:-4px;width:1px;background:rgba(0,0,0,.22);transform:translateX(-50%)}
 [data-theme="dark"] .bl-byte-mark{background:rgba(255,255,255,.2)}
-.bl-byte-lbl{position:absolute;bottom:-18px;font-size:9px;color:var(--text2);transform:translateX(-50%);white-space:nowrap;font-family:'Courier New',monospace}
+.bl-byte-lbl{position:absolute;top:calc(100% + 6px);font-size:9px;color:var(--text2);transform:translateX(-50%);white-space:nowrap;font-family:'Courier New',monospace}
 
 /* ── Sync highlight ───────────────────────────────────────────────────────── */
 .fr.hl>td{background:rgba(212,168,39,.12)!important;outline:1px solid rgba(212,168,39,.35)}
@@ -668,6 +668,101 @@ html[data-theme="dark"],html[data-theme="dark"] body{background:var(--bg);color:
 .cs-pct{font-size:11px;color:var(--text2);font-family:'Courier New',monospace;min-width:36px;text-align:right;flex-shrink:0}
 .cs-count{font-size:10.5px;color:var(--text2);min-width:52px;text-align:right;flex-shrink:0}
 [data-theme="dark"] .cs-bar{background:var(--fast)}
+/* ── Print view ─────────────────────────────────────────────────────────────── */
+@media print{
+  .hdr,.sidebar,.theme-toggle,.btn-copy,.btn-share,.btn-bm,.btn-print,.btn-diff,
+  .so-copy,.sb-adv,.pgn-hdr-actions,.variant-tabs,.bl-section,.cf-section,
+  .fp-section,.hd-section,.so-section,.cs-section,.eb-section,.rel-section,
+  .rc-section,.diff-overlay,.dc-section{display:none!important}
+  .app{display:block;margin-top:0}
+  .content{overflow:visible;padding:0}
+  .detail{max-width:100%}
+  .pgn-hdr-card{border-radius:0;box-shadow:none;break-inside:avoid}
+  .def-card{break-inside:avoid;border:1px solid #ccc}
+  body{font-size:12px;color:#000;background:#fff}
+  .pgn-hdr-num{color:#000!important}
+}
+.btn-print{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);border-radius:6px;padding:6px 12px;font-size:11.5px;cursor:pointer;transition:all .15s;font-weight:600}
+.btn-print:hover{background:rgba(255,255,255,.18);color:#fff}
+.btn-diff{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);border-radius:6px;padding:6px 12px;font-size:11.5px;cursor:pointer;transition:all .15s;font-weight:600}
+.btn-diff:hover{background:rgba(255,255,255,.18);color:#fff}
+/* ── Bit budget warning ──────────────────────────────────────────────────────── */
+.budget-warn{margin:0 18px 12px;padding:8px 12px;background:#FEF3C7;border:1px solid #F59E0B;border-radius:6px;font-size:12px;color:#92400E;display:flex;align-items:center;gap:6px}
+[data-theme="dark"] .budget-warn{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3);color:#FCD34D}
+/* ── Undocumented field marker ──────────────────────────────────────────────── */
+.tag-undoc{background:#F5F5F5;color:#9CA3AF;border:1px dashed #D1D5DB;font-style:italic}
+[data-theme="dark"] .tag-undoc{background:rgba(156,163,175,.08);color:#6B7280;border-color:#374151}
+/* ── Related PGNs ────────────────────────────────────────────────────────────── */
+.rel-section{padding:14px 18px;border-top:1px solid var(--border)}
+.rel-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);margin-bottom:10px}
+.rel-grid{display:flex;flex-wrap:wrap;gap:6px}
+.rel-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:var(--bg);border:1px solid var(--border);border-radius:20px;font-size:12px;cursor:pointer;transition:all .12s;color:var(--text)}
+.rel-chip:hover{border-color:var(--fast);color:var(--fast)}
+.rel-num{font-family:'Courier New',monospace;font-weight:700;font-size:11px;color:var(--text2)}
+/* ── Device class ────────────────────────────────────────────────────────────── */
+.dc-section{padding:8px 18px 14px;border-top:1px solid var(--border)}
+.dc-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.dc-label{font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.4px;margin-right:4px}
+.dc-chip{display:inline-flex;align-items:center;padding:3px 10px;border-radius:12px;font-size:11.5px;font-weight:600;background:rgba(15,118,110,.12);color:#0F766E;border:1px solid rgba(15,118,110,.25)}
+[data-theme="dark"] .dc-chip{background:rgba(52,211,153,.1);color:#34D399;border-color:rgba(52,211,153,.2)}
+/* ── Round-trip decoder ──────────────────────────────────────────────────────── */
+.rt-section{padding:14px 18px;border-top:1px solid var(--border)}
+.rt-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);margin-bottom:10px}
+.rt-table{width:100%;font-size:12px;border-collapse:collapse}
+.rt-table th{padding:6px 10px;background:var(--navy);color:#fff;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;text-align:left}
+.rt-table td{padding:6px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+.rt-raw{font-family:'Courier New',monospace;font-weight:700;color:var(--fast)}
+.rt-val{font-weight:600;color:var(--text)}
+.rt-unit{color:var(--text2);font-size:11px;margin-left:4px}
+[data-theme="dark"] .rt-table td{border-color:#21262D}
+[data-theme="dark"] .rt-table tr:nth-child(even) td{background:#1C2128}
+/* ── Resolution calculator ───────────────────────────────────────────────────── */
+.rc-section{padding:14px 18px;border-top:1px solid var(--border)}
+.rc-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);margin-bottom:10px}
+.rc-grid{display:flex;flex-direction:column;gap:8px}
+.rc-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rc-fname{font-size:12px;font-weight:600;color:var(--text);min-width:140px;flex-shrink:0}
+.rc-input{width:90px;padding:4px 8px;background:var(--bg);border:1px solid var(--border);border-radius:5px;color:var(--text);font-family:'Courier New',monospace;font-size:12px;outline:none}
+.rc-input:focus{border-color:var(--fast)}
+.rc-eq{font-size:12px;color:var(--text2);white-space:nowrap}
+.rc-result{font-size:12px;font-weight:600;color:var(--fast);font-family:'Courier New',monospace;min-width:70px}
+/* ── Diff modal ──────────────────────────────────────────────────────────────── */
+.diff-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;display:none;align-items:center;justify-content:center}
+.diff-overlay.open{display:flex}
+.diff-modal{background:var(--card);border:1px solid var(--border);border-radius:12px;width:min(900px,95vw);max-height:85vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.diff-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)}
+.diff-title{font-size:15px;font-weight:700;color:var(--text)}
+.diff-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--text2);line-height:1;padding:2px 6px}
+.diff-close:hover{color:var(--text)}
+.diff-sel{display:flex;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border);align-items:center;flex-wrap:wrap}
+.diff-pgn-sel{flex:1;min-width:180px;padding:7px 10px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;outline:none}
+.diff-run{padding:7px 16px;background:var(--fast);border:none;border-radius:6px;color:#fff;font-size:13px;font-weight:700;cursor:pointer}
+.diff-run:hover{opacity:.9}
+.diff-body{overflow-y:auto;padding:16px 20px;flex:1}
+.diff-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.diff-col-hdr{font-size:13px;font-weight:700;color:var(--text);padding:8px 12px;background:var(--bg);border-radius:6px;border:1px solid var(--border);text-align:center}
+.diff-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px}
+.diff-row:last-child{border-bottom:none}
+.diff-cell{padding:4px 8px;border-radius:4px;word-break:break-word}
+.diff-same{color:var(--text2)}
+.diff-add{background:rgba(16,185,129,.12);color:#059669;border:1px solid rgba(16,185,129,.2)}
+.diff-rem{background:rgba(239,68,68,.1);color:#DC2626;border:1px solid rgba(239,68,68,.15)}
+.diff-chg{background:rgba(245,158,11,.1);color:#D97706;border:1px solid rgba(245,158,11,.2)}
+[data-theme="dark"] .diff-add{background:rgba(52,211,153,.1);color:#34D399;border-color:rgba(52,211,153,.2)}
+[data-theme="dark"] .diff-rem{background:rgba(248,113,113,.1);color:#F87171;border-color:rgba(248,113,113,.2)}
+[data-theme="dark"] .diff-chg{background:rgba(251,191,36,.1);color:#FCD34D;border-color:rgba(251,191,36,.2)}
+/* ── Byte/bit inspector ──────────────────────────────────────────────────────── */
+.hd-dump{position:relative}
+.hd-byte{cursor:pointer;border-radius:2px;padding:0 1px;transition:background .1s}
+.hd-byte:hover,.hd-byte.bi-active{background:rgba(59,130,246,.18);outline:1px solid rgba(59,130,246,.45)}
+.bi-popup{position:fixed;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;box-shadow:0 8px 32px rgba(0,0,0,.45);z-index:9999;display:none;min-width:220px;pointer-events:none}
+.bi-popup.open{display:block}
+.bi-title{font-size:10.5px;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.3px}
+.bi-bits{display:flex;gap:2px;margin-bottom:8px}
+.bi-bit{width:22px;height:32px;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Courier New',monospace;border:1px solid var(--border)}
+.bi-bit-val{font-size:12px;font-weight:800;line-height:1;color:var(--text)}
+.bi-bit-idx{font-size:8px;opacity:.5;color:var(--text2)}
+.bi-field{font-size:11.5px;color:var(--text);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
 `;
 
 // ── JS app ─────────────────────────────────────────────────────────────────────
@@ -771,7 +866,15 @@ function filtered(){
   if(q){
     g=g.filter(gr=>{
       const num=String(gr.pgn);
-      return num.includes(q)||gr.defs.some(d=>d.desc.toLowerCase().includes(q)||d.id.toLowerCase().includes(q));
+      return num.includes(q)||gr.defs.some(d=>
+        d.desc.toLowerCase().includes(q)||d.id.toLowerCase().includes(q)||
+        d.fields.some(f=>
+          f.nm.toLowerCase().includes(q)||
+          (f.d&&f.d.toLowerCase().includes(q))||
+          (f.pq&&f.pq.toLowerCase().replace(/_/g,' ').includes(q))||
+          (f.u&&f.u.toLowerCase().includes(q))
+        )
+      );
     });
   }
   if(S.typeFilter!=='all'){
@@ -959,6 +1062,7 @@ function fieldRow(f,i,bitOffset){
   if(f.blk) notes.push('<span class="tag tag-blk">⚑ '+esc(f.blk)+'</span>');
   if(f.c)   notes.push('<span class="tag tag-cond">if '+esc(f.c)+'</span>');
   if(f.m!=null) notes.push('<span class="tag tag-signed">match='+esc(f.m)+'</span>');
+  if(!f.d&&!isDim) notes.push('<span class="tag tag-undoc">undocumented</span>');
 
   const descHtml=f.d?'<small>'+esc(f.d)+'</small>':'';
 
@@ -1013,6 +1117,11 @@ function renderDefBlock(d,pgn){
   ].filter(Boolean).join('');
 
   const fields=d.fields||[];
+  // bit budget check
+  const actualBits=fields.reduce((s,f)=>s+(f.b||0),0);
+  const declaredBits=d.len!=null?d.len*8:null;
+  const budgetWarn=declaredBits!=null&&actualBits!==declaredBits?
+    '<div class="budget-warn">⚠ Bit budget mismatch: fields sum to '+actualBits+'b but declared length is '+declaredBits+'b ('+Math.abs(actualBits-declaredBits)+'b '+(actualBits>declaredBits?'over':'under')+')</div>':'';
   // compute cumulative bit offsets for each field
   let _off=0;
   const bitOffsets=fields.map(f=>{const o=_off;_off+=f.b||0;return o;});
@@ -1048,6 +1157,7 @@ function renderDefBlock(d,pgn){
 
   return '<div class="def-card">'+
     '<div class="meta-row">'+metaItems+'</div>'+
+    budgetWarn+
     (d.expl?'<div class="expl-block"><p class="expl-text">'+esc(d.expl)+'</p></div>':'')+
     (d.url?'<div class="ref-row"><span class="ref-lbl">Reference</span>'+esc(d.url)+'</div>':'')+
     (d.missing&&d.missing.length?'<div class="miss-row">⚠ Missing: '+d.missing.map(esc).join(', ')+'</div>':'')+
@@ -1059,6 +1169,9 @@ function renderDefBlock(d,pgn){
     renderBitLayout(d)+
     renderSampleOutput(d,pgn)+
     renderHexDump(d)+
+    renderRoundTrip(d)+
+    renderResCalc(d)+
+    renderRelatedPgns(d,pgn)+
   '</div>';
 }
 
@@ -1158,7 +1271,7 @@ function renderHexDump(d){
       const o=owns[r+i]||{};
       const h=b.toString(16).toUpperCase().padStart(2,'0');
       const style=o.color?'color:'+o.color+';font-weight:700':'';
-      return '<span class="hd-byte" style="'+style+'" title="'+esc(o.name||'')+'">'+h+'</span>';
+      return '<span class="hd-byte" data-bi="'+(r+i)+'" style="'+style+'" title="'+esc(o.name||'')+'">'+h+'</span>';
     }).join('');
     const pad=COLS-slice.length;
     const ascCells=slice.map(b=>{const ch=b>=32&&b<127?String.fromCharCode(b):'.';return esc(ch);}).join('');
@@ -1174,7 +1287,7 @@ function renderHexDump(d){
   const legItems=d.fields.filter(f=>!['RESERVED','SPARE'].includes(f.ft)&&!seen.has(f.ft)&&seen.add(f.ft))
     .map(f=>'<span class="hd-li"><span class="hd-ldot" style="background:'+(TYPE_COLOR[f.ft]||'#374151')+'"></span>'+esc(f.ft)+'</span>').join('');
   return '<div class="hd-section">'+
-    '<div class="hd-title">Hex Wire Format<span class="hd-note">'+bytes.length+' bytes · LE bits</span></div>'+
+    '<div class="hd-title">Hex Wire Format<span class="hd-note">'+bytes.length+' bytes · LE bits · click byte for bit inspector</span></div>'+
     '<div class="hd-dump">'+rows+'</div>'+
     (legItems?'<div class="hd-leg">'+legItems+'</div>':'')+
   '</div>';
@@ -1200,6 +1313,260 @@ function renderCatStats(){
   }).join('');
   return '<div class="cs-section">'+
     '<div class="cs-title">Completeness by Category</div>'+rows+'</div>';
+}
+
+// ── Device class ───────────────────────────────────────────────────────────────
+function renderDeviceClass(pgn,d){
+  const desc=(((d&&d.desc)||'')+' '+((d&&d.fields||[]).map(f=>f.nm+' '+(f.d||'')).join(' '))).toLowerCase();
+  const classes=[];
+  if(/engine|rpm|oil pressure|fuel rate/.test(desc)) classes.push('Engine/Drive');
+  if(/ais|mmsi|vessel name|call sign|class b/.test(desc)) classes.push('AIS/VHF');
+  if(/gps|gnss|satellite|latitude|longitude|geoid/.test(desc)) classes.push('GPS');
+  if(/heading|course over ground|speed over ground|sog|cog|speed water/.test(desc)) classes.push('Navigation');
+  if(/depth|sounder|bottom/.test(desc)) classes.push('Sonar/Depth');
+  if(/wind speed|wind angle|barometric|outside temperature|atmospheric/.test(desc)) classes.push('Environmental');
+  if(/rudder|helm|steering|rate of turn/.test(desc)) classes.push('Helm');
+  if(/tank level|fluid level/.test(desc)) classes.push('Tank Monitor');
+  if(/battery|charger|inverter|ac input|dc source|alternator/.test(desc)) classes.push('Electrical');
+  if(/autopilot|pilot mode/.test(desc)) classes.push('Autopilot');
+  if(/transmission|drive|gear ratio/.test(desc)) classes.push('Drive System');
+  if(/address claim|iso|heartbeat|pgn list|network|commanded/.test(desc)) classes.push('Network Mgmt');
+  if(!classes.length) return '';
+  return '<div class="dc-section">'+
+    '<div class="dc-row">'+
+      '<span class="dc-label">Device Class</span>'+
+      classes.map(c=>'<span class="dc-chip">'+esc(c)+'</span>').join('')+
+    '</div>'+
+  '</div>';
+}
+
+// ── Related PGNs ───────────────────────────────────────────────────────────────
+function renderRelatedPgns(d,pgn){
+  const myPqs=[...new Set((d.fields||[]).map(f=>f.pq).filter(Boolean))];
+  if(!myPqs.length) return '';
+  const related=[];
+  for(const g of DATA.groups){
+    if(g.pgn===pgn) continue;
+    const shared=myPqs.filter(pq=>g.defs.some(def=>def.fields.some(f=>f.pq===pq)));
+    if(shared.length) related.push({g,shared});
+  }
+  if(!related.length) return '';
+  related.sort((a,b)=>b.shared.length-a.shared.length);
+  const chips=related.slice(0,12).map(({g,shared})=>
+    '<div class="rel-chip" onclick="selectPgn('+g.pgn+')" title="'+esc(g.defs[0].desc)+' — shared: '+esc(shared.map(p=>p.replace(/_/g,' ').toLowerCase()).join(', '))+'">'+
+      '<span class="rel-num">'+pad6(g.pgn)+'</span>'+
+      '<span>'+esc(g.defs[0].desc.length>28?g.defs[0].desc.slice(0,27)+'…':g.defs[0].desc)+'</span>'+
+    '</div>'
+  ).join('');
+  return '<div class="rel-section">'+
+    '<div class="rel-title">Related PGNs <span style="font-weight:400;text-transform:none;font-size:10.5px">(share physical quantities)</span></div>'+
+    '<div class="rel-grid">'+chips+'</div>'+
+  '</div>';
+}
+
+// ── Bit extraction helper ──────────────────────────────────────────────────────
+function extractBits(bytes,bitOffset,bitLen,signed){
+  if(bitLen<=0||bitLen>32) return null;
+  let v=0;
+  for(let i=0;i<bitLen;i++){
+    const bIdx=Math.floor((bitOffset+i)/8);
+    const bitIdx=(bitOffset+i)%8;
+    if(bIdx<bytes.length&&(bytes[bIdx]>>bitIdx)&1) v|=(1<<i);
+  }
+  v=v>>>0;
+  if(signed&&bitLen<32&&(v>>(bitLen-1))&1){v=v|(0xFFFFFFFF<<bitLen);v=v|0;}
+  return v;
+}
+
+// ── Round-trip decoder ─────────────────────────────────────────────────────────
+function renderRoundTrip(d){
+  const fields=d.fields||[];
+  if(!fields.length) return '';
+  const bytes=buildFrameBytes(d);
+  if(!bytes.length) return '';
+  let offset=0;
+  const rows=fields.map(f=>{
+    const bits=f.b||0;
+    const raw=bits>0&&bits<=32?extractBits(bytes,offset,bits,f.sg):null;
+    offset+=bits;
+    if(['RESERVED','SPARE'].includes(f.ft)) return null;
+    const rawStr=raw!=null?'0x'+((raw>>>0).toString(16).toUpperCase().padStart(Math.max(1,Math.ceil(bits/4)),'0'))+' ('+raw+')':'—';
+    let valStr='—',unitStr='';
+    if(raw!=null&&f.r!=null&&f.r!==0&&['NUMBER','FLOAT','DECIMAL','DURATION'].includes(f.ft)){
+      valStr=parseFloat((raw*f.r).toPrecision(6)).toString();
+      unitStr=f.u||'';
+    } else if(raw!=null&&f.ft==='LOOKUP'&&f.lk&&DATA.lookups[f.lk]){
+      const rawN=raw>>>0;
+      const entry=DATA.lookups[f.lk].find(([k])=>Number(k)===rawN||String(k)===String(rawN));
+      valStr=entry?entry[1]:'enum#'+raw;
+    } else if(raw!=null&&f.ft==='BITLOOKUP'&&f.blk&&DATA.bitLookups[f.blk]){
+      const active=DATA.bitLookups[f.blk].filter(([k])=>raw&(1<<parseInt(k))).map(([,n])=>n);
+      valStr=active.length?active.join('|'):'0x'+(raw>>>0).toString(16).toUpperCase();
+    } else if(raw!=null&&f.ft==='DATE'){
+      valStr='day '+raw+' (epoch 1970-01-01)';
+    } else if(raw!=null&&f.ft==='TIME'){
+      valStr=(raw/10000/3600).toFixed(3)+' hr';
+    } else if(raw!=null){
+      valStr=String(raw);
+      unitStr=f.u||'';
+    }
+    return '<tr>'+
+      '<td>'+esc(f.nm)+'</td>'+
+      '<td class="rt-raw">'+esc(rawStr)+'</td>'+
+      '<td><span class="rt-val">'+esc(valStr)+'</span>'+(unitStr?'<span class="rt-unit">'+esc(unitStr)+'</span>':'')+'</td>'+
+    '</tr>';
+  }).filter(Boolean).join('');
+  if(!rows) return '';
+  return '<div class="rt-section">'+
+    '<div class="rt-title">Round-Trip Decoder</div>'+
+    '<table class="rt-table">'+
+      '<thead><tr><th>Field</th><th>Raw (hex / int)</th><th>Decoded Value</th></tr></thead>'+
+      '<tbody>'+rows+'</tbody>'+
+    '</table>'+
+  '</div>';
+}
+
+// ── Resolution calculator ──────────────────────────────────────────────────────
+function renderResCalc(d){
+  const fields=(d.fields||[]).filter(f=>
+    !['RESERVED','SPARE'].includes(f.ft)&&f.r!=null&&f.r!==0&&f.r!==1&&
+    ['NUMBER','FLOAT','DECIMAL','DURATION'].includes(f.ft)
+  );
+  if(!fields.length) return '';
+  const rows=fields.map((f,i)=>
+    '<div class="rc-row">'+
+      '<span class="rc-fname">'+esc(f.nm)+'</span>'+
+      '<span class="rc-eq">raw:</span>'+
+      '<input class="rc-input" type="number" placeholder="integer" oninput="rcCalc('+i+','+f.r+','+f.b+',1,this)">'+
+      '<span class="rc-eq">&times;&nbsp;'+esc(fmtRes(f.r))+'&nbsp;=</span>'+
+      '<span class="rc-result" id="rc-v-'+i+'">—</span>'+
+      '<span class="rc-eq">'+esc(f.u||'')+'&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;eng:</span>'+
+      '<input class="rc-input" type="number" placeholder="value" oninput="rcCalc('+i+','+f.r+','+f.b+',0,this)">'+
+      '<span class="rc-eq">&rarr; raw:&nbsp;</span>'+
+      '<span class="rc-result" id="rc-ri-'+i+'">—</span>'+
+    '</div>'
+  ).join('');
+  return '<div class="rc-section">'+
+    '<div class="rc-title">Resolution Calculator</div>'+
+    '<div class="rc-grid">'+rows+'</div>'+
+  '</div>';
+}
+function rcCalc(i,res,bits,fromRaw,inp){
+  const v=parseFloat(inp.value);
+  if(isNaN(v)){
+    const el=document.getElementById(fromRaw?'rc-v-'+i:'rc-ri-'+i);
+    if(el) el.textContent='—';
+    return;
+  }
+  if(fromRaw){
+    const el=document.getElementById('rc-v-'+i);
+    if(el) el.textContent=parseFloat((v*res).toPrecision(6)).toString();
+  } else {
+    const raw=Math.round(v/res);
+    const maxRaw=bits?(1<<Math.min(bits,30))-1:0xFFFFFF;
+    const el=document.getElementById('rc-ri-'+i);
+    if(el) el.textContent=Math.min(Math.max(0,raw),maxRaw).toString();
+  }
+}
+
+// ── Diff two PGNs ──────────────────────────────────────────────────────────────
+function openDiff(currentPgn){
+  const overlay=document.getElementById('diff-overlay');
+  if(!overlay) return;
+  overlay.classList.add('open');
+  const sel1=document.getElementById('diff-sel-a');
+  const sel2=document.getElementById('diff-sel-b');
+  const opts=DATA.groups.map(g=>'<option value="'+g.pgn+'"'+(g.pgn===currentPgn?' selected':'')+'>'+pad6(g.pgn)+' '+esc(g.defs[0].desc)+'</option>').join('');
+  sel1.innerHTML=opts;
+  sel2.innerHTML=opts;
+  const idx=DATA.groups.findIndex(g=>g.pgn===currentPgn);
+  if(idx<DATA.groups.length-1) sel2.value=DATA.groups[idx+1].pgn;
+  document.getElementById('diff-body').innerHTML='<div style="color:var(--text2);text-align:center;padding:20px">Select two PGNs and click Compare</div>';
+}
+function closeDiff(){
+  const overlay=document.getElementById('diff-overlay');
+  if(overlay) overlay.classList.remove('open');
+}
+function runDiff(){
+  const p1=parseInt(document.getElementById('diff-sel-a').value);
+  const p2=parseInt(document.getElementById('diff-sel-b').value);
+  if(!p1||!p2||p1===p2) return;
+  const g1=DATA.groups.find(g=>g.pgn===p1);
+  const g2=DATA.groups.find(g=>g.pgn===p2);
+  if(!g1||!g2) return;
+  const d1=g1.defs[0],d2=g2.defs[0];
+  const f1=d1.fields||[],f2=d2.fields||[];
+  const maxLen=Math.max(f1.length,f2.length);
+  let rows='';
+  for(let i=0;i<maxLen;i++){
+    const fa=f1[i],fb=f2[i];
+    const descA=fa?esc(fa.nm)+'<br><small>'+esc(fa.ft)+' '+(fa.b||'?')+'b'+(fa.r?' \xd7'+fa.r:'')+(fa.u?' '+fa.u:'')+'</small>':'';
+    const descB=fb?esc(fb.nm)+'<br><small>'+esc(fb.ft)+' '+(fb.b||'?')+'b'+(fb.r?' \xd7'+fb.r:'')+(fb.u?' '+fb.u:'')+'</small>':'';
+    let clsA='diff-same',clsB='diff-same';
+    if(!fa) clsA='diff-rem';
+    else if(!fb) clsB='diff-add';
+    else if(fa.nm!==fb.nm||fa.ft!==fb.ft||fa.b!==fb.b){clsA='diff-chg';clsB='diff-chg';}
+    rows+='<div class="diff-row"><div class="diff-cell '+clsA+'">'+descA+'</div><div class="diff-cell '+clsB+'">'+descB+'</div></div>';
+  }
+  const metaDiffs=[];
+  if(d1.type!==d2.type) metaDiffs.push('<div class="diff-row"><div class="diff-cell diff-chg">Type: '+esc(d1.type)+'</div><div class="diff-cell diff-chg">Type: '+esc(d2.type)+'</div></div>');
+  if(d1.len!==d2.len) metaDiffs.push('<div class="diff-row"><div class="diff-cell diff-chg">Length: '+d1.len+'B</div><div class="diff-cell diff-chg">Length: '+d2.len+'B</div></div>');
+  document.getElementById('diff-body').innerHTML=
+    '<div class="diff-cols">'+
+      '<div class="diff-col-hdr">'+pad6(p1)+' '+esc(d1.desc)+'</div>'+
+      '<div class="diff-col-hdr">'+pad6(p2)+' '+esc(d2.desc)+'</div>'+
+    '</div>'+
+    (metaDiffs.length?'<div style="margin-bottom:12px">'+metaDiffs.join('')+'</div>':'')+
+    '<div class="rt-title" style="margin-bottom:8px">Fields ('+maxLen+' rows)</div>'+
+    (rows?'<div>'+rows+'</div>':'<div style="color:var(--text2);text-align:center;padding:16px">Identical structure</div>');
+}
+
+// ── Byte/bit inspector ─────────────────────────────────────────────────────────
+function showBitInfo(byteIdx,triggerEl){
+  const popup=document.getElementById('bi-popup');
+  if(!popup||!S.pgn) return;
+  const group=DATA.groups.find(g=>g.pgn===S.pgn);
+  if(!group) return;
+  const d=group.defs[S.variant||0];
+  const bytes=buildFrameBytes(d);
+  if(byteIdx>=bytes.length) return;
+  const byteVal=bytes[byteIdx];
+  const bitOwners=new Array(8).fill(null);
+  let offset=0;
+  for(const f of (d.fields||[])){
+    const bits=f.b||0;
+    for(let i=0;i<bits;i++){
+      const bIdx=Math.floor((offset+i)/8);
+      const bBit=(offset+i)%8;
+      if(bIdx===byteIdx) bitOwners[bBit]=f;
+    }
+    offset+=bits;
+  }
+  const bitsHtml=Array.from({length:8},(_,i)=>{
+    const bit=7-i;
+    const isSet=(byteVal>>bit)&1;
+    const owner=bitOwners[bit];
+    const color=owner?(TYPE_COLOR[owner.ft]||'#374151'):'#9CA3AF';
+    return '<div class="bi-bit" style="border-color:'+color+';background:'+(isSet?color+'22':'transparent')+'">'+
+      '<span class="bi-bit-val" style="color:'+color+'">'+isSet+'</span>'+
+      '<span class="bi-bit-idx">b'+bit+'</span>'+
+    '</div>';
+  }).join('');
+  const owners=[...new Set(bitOwners.filter(Boolean).map(f=>f.nm))];
+  popup.innerHTML='<div class="bi-title">Byte '+byteIdx+' = 0x'+byteVal.toString(16).toUpperCase().padStart(2,'0')+'</div>'+
+    '<div class="bi-bits">'+bitsHtml+'</div>'+
+    '<div class="bi-field">'+esc(owners.length?owners.join(', '):'(no field)')+'</div>';
+  // use fixed viewport coords so popup is never clipped by parent overflow
+  const rect=triggerEl.getBoundingClientRect();
+  const pW=popup.offsetWidth||220;
+  let left=rect.left-60;
+  if(left+pW>window.innerWidth-8) left=window.innerWidth-pW-8;
+  if(left<4) left=4;
+  popup.style.top=(rect.bottom+4)+'px';
+  popup.style.left=left+'px';
+  popup.classList.add('open');
+  document.querySelectorAll('.hd-byte.bi-active').forEach(el=>el.classList.remove('bi-active'));
+  triggerEl.classList.add('bi-active');
 }
 
 // ── CAN frame breakdown ────────────────────────────────────────────────────────
@@ -1359,6 +1726,8 @@ function renderDetail(){
   const actionsBlock='<div class="pgn-hdr-actions">'+
     '<button class="btn-bm'+(isBm?' active':'')+'" onclick="toggleBookmark('+pgn+',this)" title="'+(isBm?'Remove bookmark':'Bookmark')+'">'+( isBm?'★':'☆')+'</button>'+
     '<button class="btn-share" onclick="sharePgn(this)">Share</button>'+
+    '<button class="btn-print" onclick="window.print()">Print</button>'+
+    '<button class="btn-diff" onclick="openDiff('+pgn+')">Diff</button>'+
     '<button class="btn-copy" onclick="copyPgn('+pgn+',this)">Copy PGN</button>'+
   '</div>';
 
@@ -1375,6 +1744,7 @@ function renderDetail(){
     '<div class="pgn-hdr-card">'+
       '<div class="pgn-hdr-main">'+numBlock+textBlock+actionsBlock+'</div>'+
       tabsHtml+
+      renderDeviceClass(pgn,defs[0])+
     '</div>'+
     panelsHtml+
   '</div>';
@@ -1423,6 +1793,28 @@ function setupEvents(){
     }
     if(!inInput&&(e.key==='j'||e.key==='ArrowDown')){e.preventDefault();navigatePgn(1);}
     if(!inInput&&(e.key==='k'||e.key==='ArrowUp')){e.preventDefault();navigatePgn(-1);}
+  });
+
+  // Diff overlay background click → close
+  const diffOverlay=document.getElementById('diff-overlay');
+  if(diffOverlay) diffOverlay.addEventListener('click',function(e){if(e.target===this)closeDiff();});
+
+  // Keyboard shortcut: Escape closes diff modal
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&document.getElementById('diff-overlay')&&document.getElementById('diff-overlay').classList.contains('open')){
+      closeDiff();
+    }
+  },true);
+
+  // Byte/bit inspector click
+  document.addEventListener('click',function(e){
+    const byteEl=e.target.closest('.hd-byte[data-bi]');
+    if(byteEl){showBitInfo(parseInt(byteEl.dataset.bi),byteEl);return;}
+    const popup=document.getElementById('bi-popup');
+    if(popup&&popup.classList.contains('open')&&!popup.contains(e.target)){
+      popup.classList.remove('open');
+      document.querySelectorAll('.hd-byte.bi-active').forEach(el=>el.classList.remove('bi-active'));
+    }
   });
 
   // Bit layout ↔ field table sync on hover
@@ -1573,6 +1965,9 @@ function init(){
   renderSidebar();
   setupEvents();
   handleHash(false);
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('./sw.js').catch(function(){});
+  }
 }
 
 document.addEventListener('DOMContentLoaded',init);
@@ -1588,6 +1983,7 @@ const HTML = `<!DOCTYPE html>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>NMEA 2000 PGN Reference</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+  <link rel="manifest" href="manifest.json">
   <script>
     (function(){
       var t=localStorage.getItem('nmea-theme')||'system';
@@ -1608,7 +2004,7 @@ const HTML = `<!DOCTYPE html>
   <span class="hdr-title">PGN Reference</span>
   <div class="hdr-search-wrap">
     <span class="hdr-search-icon">🔍</span>
-    <input id="hdr-search" class="hdr-search" type="search" placeholder="Search PGN number or name…" autocomplete="off" spellcheck="false">
+    <input id="hdr-search" class="hdr-search" type="search" placeholder="Search PGN, name, field, unit…" autocomplete="off" spellcheck="false">
   </div>
   <div class="theme-toggle" title="Switch theme">
     <button class="tt-btn" data-t="light"  onclick="setTheme('light')"  title="Light">☀</button>
@@ -1641,6 +2037,26 @@ const HTML = `<!DOCTYPE html>
   </main>
 </div>
 
+<div id="bi-popup" class="bi-popup"></div>
+
+<div id="diff-overlay" class="diff-overlay">
+  <div class="diff-modal">
+    <div class="diff-hdr">
+      <span class="diff-title">Compare PGNs — Field Diff</span>
+      <button class="diff-close" onclick="closeDiff()">&#215;</button>
+    </div>
+    <div class="diff-sel">
+      <select id="diff-sel-a" class="diff-pgn-sel"></select>
+      <span style="color:var(--text2);font-weight:700;padding:0 4px">vs</span>
+      <select id="diff-sel-b" class="diff-pgn-sel"></select>
+      <button class="diff-run" onclick="runDiff()">Compare</button>
+    </div>
+    <div class="diff-body" id="diff-body">
+      <div style="color:var(--text2);text-align:center;padding:24px">Select two PGNs and click Compare</div>
+    </div>
+  </div>
+</div>
+
 <script>${JS}</script>
 </body>
 </html>`;
@@ -1652,3 +2068,47 @@ fs.writeFileSync(OUT, HTML, 'utf8');
 const size = (fs.statSync(OUT).size / 1024).toFixed(0);
 console.log(`Built ${OUT}  (${size} KB, ${totalGroups} PGN groups, ${TOTAL_DEFS} definitions)`);
 console.log(`Open: file://${OUT}`);
+
+// ── Service Worker ─────────────────────────────────────────────────────────────
+const SW_VERSION = `nmea2000-v${raw.Version ?? '1'}-${totalGroups}`;
+const SW = `const CACHE='${SW_VERSION}';
+const FILES=['./','./index.html'];
+self.addEventListener('install',e=>e.waitUntil(
+  caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())
+));
+self.addEventListener('activate',e=>e.waitUntil(
+  caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))
+    .then(()=>self.clients.claim())
+));
+self.addEventListener('fetch',e=>{
+  if(e.request.method!=='GET') return;
+  e.respondWith(
+    caches.match(e.request).then(cached=>cached||
+      fetch(e.request).then(res=>{
+        if(res.ok){const c=res.clone();caches.open(CACHE).then(cache=>cache.put(e.request,c));}
+        return res;
+      })
+    )
+  );
+});
+`;
+fs.writeFileSync(path.join(DIST, 'sw.js'), SW, 'utf8');
+
+// ── Web App Manifest ────────────────────────────────────────────────────────────
+const MANIFEST = JSON.stringify({
+  name: 'NMEA 2000 PGN Reference',
+  short_name: 'PGN Ref',
+  description: 'Interactive technical reference for NMEA 2000 Parameter Group Numbers',
+  start_url: './',
+  display: 'standalone',
+  background_color: '#0D1117',
+  theme_color: '#1B3A5C',
+  icons: [{
+    src: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>",
+    sizes: 'any',
+    type: 'image/svg+xml',
+    purpose: 'any maskable'
+  }]
+}, null, 2);
+fs.writeFileSync(path.join(DIST, 'manifest.json'), MANIFEST, 'utf8');
+console.log(`PWA: sw.js + manifest.json written`);
