@@ -1,0 +1,14 @@
+{
+  "name": "pgn-description-list",
+  "version": "1.0.0",
+  "description": "NMEA 2000 PGN interactive reference website generator",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "node build.js && npx serve dist -l 3000",
+    "serve": "npx serve dist -l 3000"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}
