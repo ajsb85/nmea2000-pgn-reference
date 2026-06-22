@@ -435,7 +435,7 @@ html[data-theme="dark"],html[data-theme="dark"] body{background:var(--bg);color:
 [data-theme="dark"] .fr.ev{background:#1C2128}
 [data-theme="dark"] .fr.od{background:var(--card)}
 [data-theme="dark"] .fr.dim{background:var(--bg)}
-[data-theme="dark"] .fr.dim td{color:#4B5563}
+[data-theme="dark"] .fr.dim td{color:#4B5563;background:var(--bg)}
 [data-theme="dark"] .ft td{border-bottom-color:#21262D}
 /* Explanation */
 [data-theme="dark"] .expl-block{background:rgba(30,80,140,.18)}
